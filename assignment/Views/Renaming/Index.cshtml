@@ -31,9 +31,14 @@
         @using (Html.BeginForm(FormMethod.Post))
         {
             <span>Enter your name: </span>@Html.TextBoxFor(m => m.Name)
+            <br/>
+            <span>Enter your birthdate: </span>@Html.EditorFor(m => m.BirthDate)                                                           
             <button type="submit">Rename</button>
             <div>
                 <h1>@Html.DisplayFor(m => m.Greeting)</h1>
+                <div>
+                    Geboren am: @Html.DisplayFor(m => m.BirthDate)
+                </div>
             </div>
         }
     </div>
