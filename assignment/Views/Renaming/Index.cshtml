@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewData["Title"] = "Renaming";
+    Layout = "~/Pages/_Layout.cshtml";
+}
+@model assignment.Models.DefaultModel
+
+<h2>Renaming</h2>
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
+    <script type="text/javascript" defer>
+        function updateText() {
+            var input = document.getElementById("name_input");
+            var output = document.getElementById("name_output");
+
+            if (input.value === "") {
+                output.innerText = "";
+            } else {
+                output.innerText = "Hallo " + input.value + ", schön dass du da bist!";
+            }
+        }
+
+        updateText();
+    </script>
+    Enter your name:
+    <input type="text" id="name_input" />
+    <button onclick="updateText()">Submit!</button>
+    <span id="name_output"></span>
+
+    <div>
+        @using (Html.BeginForm(FormMethod.Post))
+        {
+            <span>Enter your name: </span>@Html.TextBoxFor(m => m.Name)
+            <button type="submit">Rename</button>
+            <div>
+                <h1>@Html.DisplayFor(m => m.Greeting)</h1>
+            </div>
+        }
+    </div>
+</div>
